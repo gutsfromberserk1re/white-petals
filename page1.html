@@ -14,27 +14,36 @@
             height: 100vh;
             background: url('next-image.png') no-repeat center center/cover;
             cursor: pointer;
+            background-size: cover;
+            text-align: center;
         }
 
         .content {
-            text-align: center;
-            color: white;
+            color: darkblue;  /* Changed text color to dark blue */
             font-size: 2rem;
             font-family: Arial, sans-serif;
             opacity: 0;
             animation: fadeIn 2s ease-in forwards;
+            max-width: 90%; /* Make sure text fits on smaller screens */
+            padding: 20px;
         }
 
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        @media (max-width: 600px) {
+            .content {
+                font-size: 1.5rem; /* Smaller text for mobile */
+            }
+        }
     </style>
 </head>
 <body onclick="goBack()">
     <div class="content">
-        <h1>I hope your taking care of yourself</h1>
-        <p>「夢のように良かった。夢中になりすぎて、それが夢だと気づかなかった。」
+        <h1>I hope you're taking care of yourself</h1>
+        <p>「夢のように良かった。夢中になりすぎて、それが夢だと気づかなかった。」<br>
         「私にとって、それは忍耐のゲームだ。」</p>
     </div>
 
