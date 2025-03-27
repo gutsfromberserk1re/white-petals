@@ -19,16 +19,34 @@
         }
 
         .content {
-            color: darkblue;  /* Changed text color to dark blue */
+            color: darkblue;  /* Dark blue text */
             font-size: 2rem;
             font-family: Arial, sans-serif;
             opacity: 0;
             animation: fadeIn 2s ease-in forwards;
-            max-width: 90%; /* Make sure text fits on smaller screens */
+            max-width: 90%; /* Ensure text fits on smaller screens */
             padding: 20px;
         }
 
+        .fade-in-text {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInText 2s forwards;
+        }
+
+        .japanese-text span {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInText 0.5s ease-in forwards;
+            animation-delay: calc(0.1s * var(--i)); /* Delay each letter */
+        }
+
         @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInText {
             from { opacity: 0; }
             to { opacity: 1; }
         }
@@ -42,9 +60,55 @@
 </head>
 <body onclick="goBack()">
     <div class="content">
-        <h1>I hope you're taking care of yourself</h1>
-        <p>「夢のように良かった。夢中になりすぎて、それが夢だと気づかなかった。」<br>
-        「私にとって、それは忍耐のゲームだ。」</p>
+        <h1 class="fade-in-text">I hope you're taking care of yourself</h1>
+        <p class="japanese-text">
+            <span style="--i:1;">夢</span>
+            <span style="--i:2;">の</span>
+            <span style="--i:3;">よう</span>
+            <span style="--i:4;">に</span>
+            <span style="--i:5;">良</span>
+            <span style="--i:6;">か</span>
+            <span style="--i:7;">っ</span>
+            <span style="--i:8;">た</span>
+            <span style="--i:9;">。</span><br>
+            <span style="--i:10;">夢</span>
+            <span style="--i:11;">中</span>
+            <span style="--i:12;">に</span>
+            <span style="--i:13;">な</span>
+            <span style="--i:14;">り</span>
+            <span style="--i:15;">す</span>
+            <span style="--i:16;">ぎ</span>
+            <span style="--i:17;">て</span>
+            <span style="--i:18;">、</span>
+            <span style="--i:19;">それ</span>
+            <span style="--i:20;">が</span>
+            <span style="--i:21;">夢</span>
+            <span style="--i:22;">だ</span>
+            <span style="--i:23;">と</span>
+            <span style="--i:24;">気</span>
+            <span style="--i:25;">づ</span>
+            <span style="--i:26;">か</span>
+            <span style="--i:27;">な</span>
+            <span style="--i:28;">か</span>
+            <span style="--i:29;">っ</span>
+            <span style="--i:30;">た</span>
+            <span style="--i:31;">。</span><br>
+            <span style="--i:32;">私</span>
+            <span style="--i:33;">に</span>
+            <span style="--i:34;">と</span>
+            <span style="--i:35;">って</span>
+            <span style="--i:36;">、</span>
+            <span style="--i:37;">それ</span>
+            <span style="--i:38;">は</span>
+            <span style="--i:39;">忍</span>
+            <span style="--i:40;">耐</span>
+            <span style="--i:41;">の</span>
+            <span style="--i:42;">ゲ</span>
+            <span style="--i:43;">ー</span>
+            <span style="--i:44;">ム</span>
+            <span style="--i:45;">だ</span>
+            <span style="--i:46;">。</span>
+        </p>
     </div>
 
     <script>
