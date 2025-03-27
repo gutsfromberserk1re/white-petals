@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your stronger than me</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('next-image.png') no-repeat center center/cover;
+            cursor: pointer;
+        }
+
+        .content {
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body onclick="goBack()">
+    <div class="content">
+        <h1>I hope your taking care of yourself</h1>
+        <p>「夢のように良かった。夢中になりすぎて、それが夢だと気づかなかった。」
+        「私にとって、それは忍耐のゲームだ。」</p>
+    </div>
+
+    <script>
+        function goBack() {
+            window.location.href = "index.html"; // Goes back to the first page
+        }
+    </script>
+</body>
+</html>
