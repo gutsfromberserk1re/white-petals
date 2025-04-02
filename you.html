@@ -3,93 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I will wait wether you want me to or not</title>
+    <title>Rainfall</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(to bottom, #274472, #1b2838); /* Stormy sky colors */
+            background: #2c3e50;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
             position: relative;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 90%;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                font-size: 1.2rem;
+                padding: 10px;
+            }
         }
 
         .rain {
             position: absolute;
-            width: 100%;
-            height: 100%;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
         }
 
-        .raindrop {
+        .drop {
             position: absolute;
             width: 2px;
             height: 10px;
-            background: lightblue;
-            opacity: 0.7;
+            background: rgba(255, 255, 255, 0.6);
             animation: fall linear infinite;
         }
 
         @keyframes fall {
             from {
                 transform: translateY(-10vh);
-                opacity: 0;
+                opacity: 1;
             }
             to {
                 transform: translateY(100vh);
-                opacity: 1;
+                opacity: 0;
             }
-        }
-
-        .content {
-            color: white;
-            text-align: center;
-            font-size: 1.5rem;
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="rain"></div>
-    <div class="content">
+    <div class="container">
         <p>
-            My biggest enemy is the <b>human feeling</b> itself.<br><br>
-            The second biggest enemy, which everyone can say too for themselves, are the <b>times</b>.<br>
-            Only <b>time</b> will tell how someone feels, and how you feel can change the <b>times</b>.<br><br>
-            I gave them everything I had; now I have yet to give them my <b>time</b>.<br>
-            <b>Waiting</b> is painful, but what's more painful are the <b>feelings</b> that come with it.<br>
-            Depending on the <b>answer</b>, I could have my <b>dreams</b> come true, or shatter into pieces I can't even count.<br><br>
-            When <b>time</b> comes, someone will come and, piece by piece, rebuild me.<br>
-            That <b>time</b> will come, knock on my door, but I'm not going to open the door for him.<br>
-            That <b>time</b> may never come when I can trust someone for their <b>words</b> again over their <b>actions</b>.<br><br>
-            <b>People</b> change over <b>time</b>; let that be a year, five years, or even just a few weeks.<br>
-            <b>Human feelings</b> change.<br>
-            I can never trust your <b>feelings</b> again, but don't let that stop you from coming back, as I'm still <b>waiting</b>.<br><br>
-            Even if I were to get hurt, I was born to be <b>hurt</b>.<br>
-            This is my <b>fate</b>, and I accept it gracefully.<br>
-            I will carry my pieces in a jar and give them to you.<br>
-            But that is only if you promise to never scatter them around again.<br><br>
-            You’ll be getting this when you’re in your right mind.<br><br>
-            <b>Yours forever,<br> Riley</b>
+            My biggest <b>enemy</b> is the human <b>feeling</b> itself.<br>
+            The second biggest <b>enemy</b> which everyone can say too for themselves are the <b>times</b>.<br>
+            Only <b>time</b> will tell how someone <b>feels</b>.<br>
+            And how you <b>feel</b> can change the <b>times</b>.<br><br>
+
+            I gave them everything I had, now I have yet to give them my <b>time</b>.<br>
+            Waiting is <b>painful</b>, what's more <b>painful</b> are the <b>feelings</b> that come with it.<br>
+            Depending on the <b>answer</b> I could have my <b>dreams</b> come true,<br>
+            Or shatter into pieces I can't even count.<br><br>
+
+            When <b>time</b> comes, someone will come and piece by piece rebuild me.<br>
+            That <b>time</b> will come knock on my door,<br>
+            But I'm not going to open the door for <b>him</b>.<br>
+            That <b>time</b> may never come when I can trust someone for their <b>words</b> again over <b>actions</b>.<br>
+            People change over <b>time</b>, let that be a year or five,<br>
+            Or even just a few weeks.<br>
+            Human <b>feelings</b> change.<br><br>
+
+            I can never trust your <b>feelings</b> again,<br>
+            But don't let that stop you from coming back.<br>
+            As I'm still <b>waiting</b>,<br>
+            Even if I were to get <b>hurt</b>.<br>
+            I normalized being <b>hurt</b>, this is my <b>fate</b> and I accept gracefully.<br>
+            I will carry my pieces in a <b>jar</b> and give them to you.<br>
+            But that is only if you promise to never scatter them around again.<br>
+            You'll be getting this when you're in your right mind.<br><br>
+
+            Yours forever,<br>
+            Riley
         </p>
     </div>
+
+    <div class="rain"></div>
     <script>
         function createRain() {
             const rainContainer = document.querySelector('.rain');
-            for (let i = 0; i < 150; i++) { // More drops for denser effect
+            for (let i = 0; i < 100; i++) {
                 let drop = document.createElement('div');
-                drop.classList.add('raindrop');
+                drop.classList.add('drop');
                 drop.style.left = Math.random() * 100 + 'vw';
-                drop.style.animationDuration = (Math.random() * 1.5 + 0.5) + 's';
-                drop.style.animationDelay = Math.random() * 2 + 's';
+                drop.style.animationDuration = (Math.random() * 1 + 0.5) + 's';
                 rainContainer.appendChild(drop);
             }
         }
