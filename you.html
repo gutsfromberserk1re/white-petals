@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stormy Sky</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #4e6a8a; /* Stormy Sky Blue */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .content {
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            max-width: 80%;
+            padding: 20px;
+            line-height: 1.5;
+            z-index: 2;
+        }
+
+        .raindrop {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background-color: #a8c0d7; /* Pixelated Rain Color */
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Generate random drops using JavaScript */
+        .rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p>
+           My biggest enemy is the human feeling itself.
+
+The second biggest enemy, which everyone can say too for themselves, are the times. Only time will tell how someone feels, and how you feel can change the times.
+
+I gave them everything I had; now I have yet to give them my time. Waiting is painful, but what's more painful are the feelings that come with it. Depending on the answer, I could have my dreams come true, or shatter into pieces I can't even count.
+
+When time comes, someone will come and, piece by piece, rebuild me. That time will come, knock on my door, but I'm not going to open the door for him. That time may never come when I can trust someone for their words again over their actions.
+
+People change over time; let that be a year, five years, or even just a few weeks. Human feelings change. I can never trust your feelings again, but don't let that stop you from coming back, as I'm still waiting.
+
+Even if I were to get hurt, I was born to be hurt. This is my fate, and I accept it gracefully. I will carry my pieces in a jar and give them to you. But that is only if you promise to never scatter them around again.
+
+You’ll be getting this when you’re in your right mind.
+
+Yours forever,
+Riley
+        </p>
+    </div>
+
+    <div class="rain"></div>
+
+    <script>
+        // Function to generate random rain drops
+        function createRaindrop() {
+            const rainContainer = document.querySelector('.rain');
+            const raindrop = document.createElement('div');
+            raindrop.classList.add('raindrop');
+            raindrop.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+            raindrop.style.animationDuration = `${Math.random() * 2 + 2}s`; // Random fall speed
+            raindrop.style.animationDelay = `${Math.random() * 3}s`; // Random delay before falling
+            rainContainer.appendChild(raindrop);
+
+            // Remove raindrop after animation completes
+            raindrop.addEventListener('animationend', () => {
+                raindrop.remove();
+            });
+        }
+
+        // Generate rain every 100ms
+        setInterval(createRaindrop, 100);
+    </script>
+</body>
+</html>
