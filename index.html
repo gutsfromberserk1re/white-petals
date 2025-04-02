@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>press enter when you cant understand anything</title>
+    <title>Hi</title>
     <style>
         body {
             margin: 0;
@@ -15,6 +15,7 @@
             background: url('page.png') no-repeat center center;
             background-size: contain; /* Adjust the background image size */
             cursor: pointer;
+            position: relative;
         }
 
         .content {
@@ -27,6 +28,17 @@
             max-width: 80%;
             padding: 20px;
             line-height: 1.5;
+        }
+
+        .enter-text {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 1.2rem;
+            font-family: Arial, sans-serif;
+            opacity: 0;
+            animation: fadeIn 3s ease-in forwards 1.5s; /* Delayed fade-in */
         }
 
         @keyframes fadeIn {
@@ -58,6 +70,12 @@
             p {
                 font-size: 1rem;
             }
+
+            .enter-text {
+                font-size: 1rem;
+                bottom: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
@@ -68,6 +86,8 @@
         i wish i could deliver an actual letter to your house but this will have to do for now!<br>
         with this letter i hope your day gets a little better.</p>
     </div>
+    
+    <div class="enter-text">Enter</div>
 
     <script>
         function nextPage() {
@@ -82,4 +102,3 @@
     </script>
 </body>
 </html>
-
