@@ -3,98 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stormy Sky</title>
+    <title>Stormy Rain</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            background-color: #4e6a8a; /* Stormy Sky Blue */
-            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
+            height: 100vh;
+            background: linear-gradient(to bottom, #274472, #1b2838); /* Stormy sky colors */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .rain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background: lightblue;
+            opacity: 0.7;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
         }
 
         .content {
             color: white;
             text-align: center;
             font-size: 1.5rem;
-            max-width: 80%;
+            font-family: Arial, sans-serif;
+            max-width: 600px;
             padding: 20px;
-            line-height: 1.5;
-            z-index: 2;
-        }
-
-        .raindrop {
-            position: absolute;
-            width: 10px;
-            height: 20px;
-            background-color: #a8c0d7; /* Pixelated Rain Color */
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-
-        /* Generate random drops using JavaScript */
-        .rain {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
+    <div class="rain"></div>
     <div class="content">
         <p>
-           My biggest enemy is the human feeling itself.
-
-The second biggest enemy, which everyone can say too for themselves, are the times. Only time will tell how someone feels, and how you feel can change the times.
-
-I gave them everything I had; now I have yet to give them my time. Waiting is painful, but what's more painful are the feelings that come with it. Depending on the answer, I could have my dreams come true, or shatter into pieces I can't even count.
-
-When time comes, someone will come and, piece by piece, rebuild me. That time will come, knock on my door, but I'm not going to open the door for him. That time may never come when I can trust someone for their words again over their actions.
-
-People change over time; let that be a year, five years, or even just a few weeks. Human feelings change. I can never trust your feelings again, but don't let that stop you from coming back, as I'm still waiting.
-
-Even if I were to get hurt, I was born to be hurt. This is my fate, and I accept it gracefully. I will carry my pieces in a jar and give them to you. But that is only if you promise to never scatter them around again.
-
-You’ll be getting this when you’re in your right mind.
-
-Yours forever,
-Riley
+            My biggest enemy is the <b>human feeling</b> itself.<br><br>
+            The second biggest enemy, which everyone can say too for themselves, are the <b>times</b>.<br>
+            Only <b>time</b> will tell how someone feels, and how you feel can change the <b>times</b>.<br><br>
+            I gave them everything I had; now I have yet to give them my <b>time</b>.<br>
+            <b>Waiting</b> is painful, but what's more painful are the <b>feelings</b> that come with it.<br>
+            Depending on the <b>answer</b>, I could have my <b>dreams</b> come true, or shatter into pieces I can't even count.<br><br>
+            When <b>time</b> comes, someone will come and, piece by piece, rebuild me.<br>
+            That <b>time</b> will come, knock on my door, but I'm not going to open the door for him.<br>
+            That <b>time</b> may never come when I can trust someone for their <b>words</b> again over their <b>actions</b>.<br><br>
+            <b>People</b> change over <b>time</b>; let that be a year, five years, or even just a few weeks.<br>
+            <b>Human feelings</b> change.<br>
+            I can never trust your <b>feelings</b> again, but don't let that stop you from coming back, as I'm still <b>waiting</b>.<br><br>
+            Even if I were to get hurt, I was born to be <b>hurt</b>.<br>
+            This is my <b>fate</b>, and I accept it gracefully.<br>
+            I will carry my pieces in a jar and give them to you.<br>
+            But that is only if you promise to never scatter them around again.<br><br>
+            You’ll be getting this when you’re in your right mind.<br><br>
+            <b>Yours forever,<br> Riley</b>
         </p>
     </div>
-
-    <div class="rain"></div>
-
     <script>
-        // Function to generate random rain drops
-        function createRaindrop() {
+        function createRain() {
             const rainContainer = document.querySelector('.rain');
-            const raindrop = document.createElement('div');
-            raindrop.classList.add('raindrop');
-            raindrop.style.left = `${Math.random() * 100}vw`; // Random horizontal position
-            raindrop.style.animationDuration = `${Math.random() * 2 + 2}s`; // Random fall speed
-            raindrop.style.animationDelay = `${Math.random() * 3}s`; // Random delay before falling
-            rainContainer.appendChild(raindrop);
-
-            // Remove raindrop after animation completes
-            raindrop.addEventListener('animationend', () => {
-                raindrop.remove();
-            });
+            for (let i = 0; i < 150; i++) { // More drops for denser effect
+                let drop = document.createElement('div');
+                drop.classList.add('raindrop');
+                drop.style.left = Math.random() * 100 + 'vw';
+                drop.style.animationDuration = (Math.random() * 1.5 + 0.5) + 's';
+                drop.style.animationDelay = Math.random() * 2 + 's';
+                rainContainer.appendChild(drop);
+            }
         }
-
-        // Generate rain every 100ms
-        setInterval(createRaindrop, 100);
+        createRain();
     </script>
 </body>
 </html>
