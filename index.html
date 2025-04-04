@@ -13,14 +13,15 @@
             align-items: center;
             height: 100vh;
             background: url('page.png') no-repeat center center;
-            background-size: contain; /* Adjust the background image size */
+            background-size: contain;
             cursor: pointer;
             position: relative;
+            overflow: hidden; /* Prevent emojis from overflowing */
         }
 
         .content {
             text-align: center;
-            color: #003366; /* Dark blue color */
+            color: #003366;
             font-size: 2rem;
             font-family: Arial, sans-serif;
             opacity: 0;
@@ -28,6 +29,7 @@
             max-width: 80%;
             padding: 20px;
             line-height: 1.5;
+            z-index: 1; /* Keep text above emojis */
         }
 
         .enter-text {
@@ -38,7 +40,7 @@
             font-size: 1.2rem;
             font-family: Arial, sans-serif;
             opacity: 0;
-            animation: fadeIn 3s ease-in forwards 1.5s; /* Delayed fade-in */
+            animation: fadeIn 3s ease-in forwards 1.5s;
         }
 
         @keyframes fadeIn {
@@ -77,6 +79,38 @@
                 right: 10px;
             }
         }
+
+        /* Emoji styles */
+        .emoji {
+            position: absolute;
+            font-size: 3rem;
+            user-select: none;
+            animation: float 5s infinite;
+        }
+
+        .emoji:nth-child(odd) {
+            animation-duration: 4s;
+        }
+
+        .emoji:nth-child(even) {
+            animation-duration: 6s;
+        }
+
+        .emoji:hover {
+            transform: scale(1.2);
+        }
+
+        .glow {
+            text-shadow: 0 0 10px yellow, 0 0 20px yellow;
+            z-index: 2;
+        }
+
+        /* Animation for floating effect */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
     </style>
 </head>
 <body onclick="nextPage()">
@@ -88,6 +122,14 @@
     </div>
     
     <div class="enter-text">Enter</div>
+
+    <!-- Emojis -->
+    <div class="emoji" style="top: 10%; left: 20%;">☂️</div>
+    <div class="emoji" style="top: 30%; left: 40%;">🌧️</div>
+    <div class="emoji" style="top: 50%; left: 60%;">☂️</div>
+    <div class="emoji glow" style="top: 70%; left: 80%;" onclick="window.location.href='https://example.com';">🌂</div> <!-- Raining umbrella with glow effect -->
+    <div class="emoji" style="top: 20%; left: 70%;">🐰</div>
+    <div class="emoji" style="top: 40%; left: 80%;">🍪</div>
 
     <script>
         function nextPage() {
@@ -102,3 +144,4 @@
     </script>
 </body>
 </html>
+
